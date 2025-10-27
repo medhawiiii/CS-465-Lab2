@@ -215,7 +215,7 @@ function MyMap(){
 
     // setting up the reverse geo search
     // calling proxy to fetch data from nominatim (fetches server-side, bypasses CORS)
-    const locationProvider = await fetch(`/api/nominatim-proxy?lat=${lat}&lon=${lng}`);
+    const locationProvider = await fetch(`api/nominatim-proxy?lat=${lat}&lon=${lng}`);
 
     // waiting for query to match provided coordinates to location name
     const locationResults = await locationProvider.json();
@@ -240,7 +240,7 @@ function MyMap(){
     const addMemoryMarker = async (e) => {
 
       // console logs to check if clicks are registered and to check state 
-      console.log(MapClickHandler, e);
+      console.log("clicked", e);
       console.log("adding marker:", addingMemoryMarkers);
       // if user clicks done button, no longer add any markers when a location is clicked
       if(!addingMemoryMarkers) return;
