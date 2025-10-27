@@ -1,6 +1,5 @@
 // This file sets up the page header and deals with rendering the map
 
-import React from 'react';
 // importing map from map.jsx file
 import MyMap from './map.jsx';
 import './App.css';
@@ -12,7 +11,13 @@ function MapApp(){
   return ( 
   <>
    {/* creating page header */}
-  <h1> Oh, All the Memories!</h1>
+   <div className='pageHeader'> 
+      <h1> Oh, All the Memories!</h1>
+   </div>
+      {/* creating second header */}
+      <div className='secondHeader'> 
+      <h2> A map to put down your favourite spots and memories.</h2>
+   </div>
 
   {/* rendering map */}
   <MyMap/>

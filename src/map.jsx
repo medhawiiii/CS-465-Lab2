@@ -13,6 +13,7 @@ import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
 // importing geosearch css file
 import 'leaflet-geosearch/dist/geosearch.css';
 
+
 /* App Functions */
 
 /* Event Handling */
@@ -141,7 +142,12 @@ function SearchBar({onSearchClick}){
     // creating search bar
     const searchBar = new GeoSearchControl({
       // sets provider
-      provider: new OpenStreetMapProvider(),
+      provider: new OpenStreetMapProvider({
+        params: {
+          'accept-language':'en;',
+        },
+        searchUrl: 'https://nominatim.openstreetmap.org/search?'
+      }),
       // sets style
       style:'bar',
       // sets marker state
@@ -164,7 +170,7 @@ function SearchBar({onSearchClick}){
     memMap.on('geosearch/showlocation', (result) => {
 
       // sets coordindates and location label to selected location
-      const {x: lng, y: lat, locationLabel} = result.location;
+      const {x: lng, y: lat, label: locationLabel} = result.location;
 
       // calling function used for map clicks
       onSearchClick({latlng: {lat, lng}, locationLabel});
@@ -201,27 +207,28 @@ function MyMap(){
     // adding react hook to check for whether user has list shown/hidden
     const [showLocationsList, setShowLocationsList] = useState(true);
 
-    // setting up the reverse geo search
-    // states that coordinates are being provided by OpenStreetMap
-    const locationProvider = new OpenStreetMapProvider();
 
 /* Get Location Name From Coordinates*/
 
   // gets location name from coordinates
   async function getLocationName(lat, lng) {
 
+    // setting up the reverse geo search
+    // calling proxy to fetch data from nominatim (fetches server-side, bypasses CORS)
+    const locationProvider = await fetch(`/api/nominatim-proxy?lat=${lat}&lon=${lng}`);
+
     // waiting for query to match provided coordinates to location name
-    const locationResults = await locationProvider.search({ query: `${lat},${lng}` });
+    const locationResults = await locationProvider.json();
 
     // if there is a match return the address, else say that location is unknown
-    if (locationResults && locationResults.length > 0 )
+    if (locationResults && locationResults.display_name)
     {
       
       // returning location name
-      return locationResults[0].label;
+      return locationResults.display_name;
     }
     else 
-      {
+    {
       // stating that location name is unknown
       return "Location unknown.";
     }
@@ -240,7 +247,7 @@ function MyMap(){
 
       // getting location name and storing it
       // get from search label, if no label do a reverse geo search
-      const locationLabel = e.locationLabelabel || await getLocationName(lat, lng);
+      const locationLabel = e.locationLabel || e.label || await getLocationName(lat, lng);
 
       // prompting user for location name
       const locationNickname = prompt("What is this location?");
@@ -295,7 +302,7 @@ function MyMap(){
     // we have two: MapButtons and MapContainer
     <div>
 
-    {/*  adding done, reset, and show/hide list of locations buttons */}
+    {/* adding done, reset, and show/hide list of locations buttons */}
     <MapButtons
       setAddingMemoryMarkers = {setAddingMemoryMarkers}
       setMemoryMarkers = {setMemoryMarkers}
@@ -304,7 +311,7 @@ function MyMap(){
       setShowLocationsList = {setShowLocationsList}
     />
 
-    {/*  adding locations list */}
+    {/* adding locations list */}
     <LocationsList 
     memoryMarkers = {memoryMarkers} 
     markerVisible = {showLocationsList}
