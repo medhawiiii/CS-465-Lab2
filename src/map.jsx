@@ -275,15 +275,22 @@ function MyMap(){
   // adding handler for editing information
   const handleMemoryEdit = (locationId) => {
 
+        
+    // prompting for updated nickname
+    const nicknameUpdate = prompt ("Enter nickname update.");
+    
     // prompting for updated memory
     const memoryUpdate = prompt ("Enter memory update.");
 
-    // if memory update is not empty, update memory
-    if(memoryUpdate !== null){
-      // change memory to updated memory without changing position of location on list
+    // if user cancels, don't update
+  if (nicknameUpdate === null && memoryUpdate === null) {return;};
+
+    // update nickname/memory
+      // update memory/nickname without changing position of location on list
       setMemoryMarkers((prev) => 
-      prev.map((marker, memoryId) => memoryId === locationId ? {...marker, userMemory: memoryUpdate}: marker));}
-  };
+      prev.map((marker, memoryId) => memoryId === locationId ? {...marker, 
+      locationNickname: nicknameUpdate || marker.locationNickname, 
+      userMemory: memoryUpdate || marker.userMemory}: marker));}
 
     // adding handler for deleting information
     // filtering easiest method to remove item from array
