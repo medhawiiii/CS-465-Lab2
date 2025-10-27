@@ -239,6 +239,9 @@ function MyMap(){
     // adds new markers when user clicks on area in map
     const addMemoryMarker = async (e) => {
 
+      // console logs to check if clicks are registered and to check state 
+      console.log(MapClickHandler, e);
+      console.log("adding marker:", addingMemoryMarkers);
       // if user clicks done button, no longer add any markers when a location is clicked
       if(!addingMemoryMarkers) return;
 
