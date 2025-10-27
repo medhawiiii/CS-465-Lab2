@@ -1,39 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import './map.jsx'
+// This file sets up the page header and deals with rendering the map
+
+import React from 'react';
+// importing map from map.jsx file
+import MyMap from './map.jsx';
+import './App.css';
 
 // importing map components
-import { MapContainer, TileLayer} from 'react-leaflet';
+// import { MapContainer, TileLayer} from 'react-leaflet';
 
-function App() {
-  const [count, setCount] = useState(0)
+function MapApp(){
+  return ( 
+  <>
+   {/* creating page header */}
+  <h1> Oh, All the Memories!</h1>
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  {/* rendering map */}
+  <MyMap/>
+  </>
+);
 }
 
-export default App
+export default MapApp;
+

@@ -1,42 +1,137 @@
+/* This file defines the css elements of the map page */
+
+/* using simple selecter to select all elements 
+to make it look the same in all browsers*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #03537f;
+}
+
+/* sets style for root of entire project */
 #root {
+  height: 100vh;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* sets size for Leaflet map container */
+.leaflet-container{
+  height: 75vh;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* sets placement of map buttons, creates specific container for buttons*/
+/* defaults to be horizontal for larger screens */
+.mapButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+/* makes buttons dynamic for different screen sizes */
+@media only screen and (max-width: 768px)
+{
+  /* stack buttons vertically on smaller screens */
+  .mapButtons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* sets style of buttons */
+.mapButtons button {
+  background-color: lightblue;
+  border: 2px solid #008CBA;
+  color:#008CBA;
+  padding: 8px 16px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
+  font-style: italic;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+/* when hovering over buttons, change color of button */
+.mapButtons button:hover {
+  background-color: #008CBA;
+  color: lightblue;
+  border: 2px solid rgb(112, 176, 198);
+}
+
+/* sets style of list, creates specific container for list */
+.locationsList {
+  list-style-type: square;
+  list-style-position: inside;
+  background-color: aliceblue;
+  background-repeat: no-repeat;
+  border: 2px solid  #008CBA;
+  padding: 4px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+}
+
+/* makes list dynamic for different screen sizes */
+@media only screen and (max-width: 768px)
+{
+  /* stack buttons vertically on smaller screens */
+  .locationsList {
+    width: 75%;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* sets style of list inside container, if it gets too long, scrollable*/
+.locationsList ul{
+  list-style-type:decimal;
+  list-style-position: inside;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-.card {
-  padding: 2em;
+.locationsList ul li{
+  border: 2px solid  rgb(68, 100, 128);
+  padding: 4px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+.locationsList button{
+  background-color: lightblue;
+  border: 2px solid #008CBA;
+  color:#008CBA;
+  padding: .5px .5px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bolder;
+  font-style: italic;
+  cursor: pointer;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-bottom: 4px;
 }
+
+/* when hovering over buttons, change color of button */
+.locationsList button:hover {
+  background-color: #008CBA;
+  color: lightblue;
+  border: 2px solid rgb(112, 176, 198);
+}
+
