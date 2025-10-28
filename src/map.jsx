@@ -41,7 +41,8 @@ function MapClickHandler({onClick}){
       
       // calls on addMemoryMarker() function defined in MyMap
       onClick(e);
-
+      // lets user know location is being fetched
+      onclick(window.confirm('Fetching location...'));
     },
   });
   return null;
@@ -265,15 +266,11 @@ function MyMap(){
       const locationNickname = prompt("What is this location?");
       // if canceled, stop and don't add marker
       if(locationNickname === null) {
-        return;
+      return;
       };
 
       // prompting user to input the memory that and storing it
       const memoryAtLocation = prompt(`What does this location-- ${locationNickname} --mean to you?`);
-      // if canceled, stop and don't add marker 
-      if(memoryAtLocation === null) {
-        return;
-      };
      
       // creating const memory to contain location + message saying no memory when no location
       const userMemory = memoryAtLocation || "No memory written.";
