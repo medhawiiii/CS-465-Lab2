@@ -234,7 +234,7 @@ function MyMap(){
     if (locationsResultData && locationsResultData.display_name)
     {
       // returning location name
-      return locationResults.display_name;
+      return locationsResultData.display_name;
     }
     else 
     {
