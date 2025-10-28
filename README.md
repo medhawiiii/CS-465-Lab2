@@ -1,8 +1,8 @@
 # Lab 2: Oh, All The Memories (also known as: Oh, the places you've been!)
-Developer: Medhawi Bista
-GitHub: @medhawiiii
-Repository: https://github.com/medhawiiii/CS-465-Lab2 
-Collaborator(s): Charles Palmer, Instructor
+- Developer: Medhawi Bista
+- GitHub: @medhawiiii
+- Repository: https://github.com/medhawiiii/CS-465-Lab2 
+- Collaborator(s): Charles Palmer, Instructor
 
 ## Purpose
 The purpose of this lab was to create a simple interactive and reactive map using React, JavaScript, the Leaflet API, OpenStreetMap, CSS, and Vite. The website was deployed on render.com.
@@ -10,10 +10,10 @@ The purpose of this lab was to create a simple interactive and reactive map usin
 ## Running the App
 To run and deploy this application, users can simply follow the set-up process from React and Vite. They can also just do the following:
 
-Clone repository
-Use npm install to install the dependencies
-Run locally with npm run dev
-Deploy using render.com 
+- Clone repository
+- Use npm install to install the dependencies
+- Run locally with npm run dev
+- Deploy using render.com 
 
 ## What To Expect After Running
 After the application is up and running, users are able to put markers on the locations they select, input nicknames for the location and write down their memory at the location. The markers have pop-ups that have the nickname and memory, as well as the exact address of their marker. We got the exact location by reverse geocoding. As the user puts down markers it gets added to a list of the locations and their memories. 
@@ -109,6 +109,6 @@ https://stackoverflow.com/questions/8715860/what-does-mean-in-css
 
 
 ## Final Thoughts and Acknowledgements
-Overall, while I had plenty of struggles and hurdles in my path, I learned a lot of things while working on this assignment and have begun to gain a better understanding of all the tools used for this lab.
+Overall, while I had plenty of struggles and hurdles in my path, I learned a lot of things while working on this assignment and have begun to gain a better understanding of all the tools used for this lab. In the future I want allow the users to save their lists and then load it back in. 
 
 I pledge that this project was written solely by me using only what I learned in class and what knowledge I gained from official documents, guides, and examples, and was done to the best of my ability as a beginner.
