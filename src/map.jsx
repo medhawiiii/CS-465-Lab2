@@ -214,6 +214,9 @@ function MyMap(){
   // gets location name from coordinates
   async function getLocationName(lat, lng) {
 
+    // gives error when too many requests made at once
+    // nominatim accepts "a maximum of only 1 req/sec", stated in usage policy page.
+
     // setting up the reverse geo search
     /* was calling api proxy backend to fetch data from nominatim (fetches server-side, bypasses CORS)
     // but became overcomplicated, chose to use AllOrigins proxy (free) to call nominatim
@@ -221,43 +224,34 @@ function MyMap(){
     try
     {
     // creating vars to hold urls (easier and cleaner to handle)
-    const urlNominatim = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
-    // switched to official geocoding endpoint, if acceptable header, works and bypasses CORs error
-    const locationProvider = await fetch(urlNominatim,{
-      headers:{"User-Agent":"cs-465-lab2/1.0(http://localhost:5173/)"}
-    });
+    const urlNominatim = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&app = lab2-memoriesMap&email=medhabi.bista@snhu.edu`;
+    const urlNomProxy = `https://api.allorigins.win/get?url=${encodeURIComponent(urlNominatim)}`;
+    
+      // sending fetch request to nominatim through allOrigins 
+    const locationProvider = await fetch(urlNomProxy);
+
     // if failure, throw to catch
     if(!locationProvider.ok){
-      throw new Error('Error fetching location. Status ${locationProvider.status}');
+      throw new Error('Error fetching location. Status: ${locationProvider.status}');
     };
 
     /*stores data, reads request body and returns as promise
     // resolves with result of parsing body text as JSON
     // takes json as input and parses to produce Javacript object */
-    const locationResults = await locationProvider.json();
-    // // // parses return from AllOrigins
-    // const locationData = JSON.parse(locationResults.contents);
-    // locationName = locationData.display_name || "Location unknown";
-    
-    // // if there is a match/is valid, return the address, else say that location is unknown
-    // if (locationData && locationData.display_name)
-    // {
-    //   // returning location name
-    //   return locationData.display_name;
-    // }
-    // else 
-    // {
-    //   // stating that location name is unknown
-    //   return "Location unknown.";
-    // }
-    return locationResults.display_name || "Location unknown.";
+    // get response, take as json
+    const data = await locationProvider.json();
+
+    // parses return from AllOrigins
+    const locationName = JSON.parse(data.contents);    
+
+    // if available, return name, otherwise state location is unknown
+    return locationName.display_name || "Location unknown.";
     }
     // catch block if there are errors 
     catch(error){
-    // if error send error message to console with error
+    // if error getting location name, send error message to console
     console.error(
-      "Error with getLocationName(): ", error
-    );
+      "Error with getLocationName(): ", error);
       // if any error, state Location unknown
       return "Location unknown";
     }
