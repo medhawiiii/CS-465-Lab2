@@ -338,9 +338,22 @@ function MyMap(){
     deleteLocation={handleLocationDelete}
     />
 
-
-    {/* creating basic map layout and centering map over NYC, sets zoom, and sets as map instance upon creation */}
-    <MapContainer center ={[40.717, -74.000]} zoom = {13}>
+  <div className='myMapWrapper'>
+    {/* creating basic map layout
+    // centering map over NYC, sets zoom,
+    // sets bounds to prevent panning beyond world
+    // sets strength of boundaries
+    // makes sure users can't zoom in/out too far or endlessly pan*/}
+    <MapContainer 
+    center = {[40.717, -74.000]} 
+    zoom = {13} 
+    maxZoom={18}
+    minZoom = {2}
+    maxBounds = {[[-90, -180], [90, 180]]} 
+    maxBoundsViscosity = {1.5}
+    dragging = {true}
+    scrollWheelZoom = {true}
+    >
 
     {/* adding map tiles (visual representation of map) */}
     <TileLayer
@@ -376,6 +389,7 @@ function MyMap(){
     ))}
 
     </MapContainer>
+    </div>
     </div>
   )
 }

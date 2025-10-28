@@ -53,6 +53,22 @@ body, html{
   }
 }
 
+/* sets style for container around box, overflow keeps map from spilling out of container */
+.myMapWrapper{
+  position: relative;
+  height: 100vh;
+  width: 95%;
+  margin: 0 auto;
+  border: 2px solid #008CBA;
+  overflow: hidden;
+}
+
+/* ensures map fits into wrapper box */
+.myMapWrapper .leaflet-container{
+  height: 100vh;
+  width: 100%;
+}
+
 /* sets size for Leaflet map container */
 .leaflet-container{
   height: 100vh;
@@ -112,7 +128,7 @@ body, html{
   background-repeat: no-repeat;
   border: 2px solid  #008CBA;
   padding: 4px;
-  width: 95%;
+  width: 90%;
   margin-bottom: 4px;
   margin-top: 4px;
   margin-left: auto;
@@ -125,7 +141,7 @@ body, html{
 {
   /* changes list to better fit window size */
   .locationsList {
-    width: 90%;
+    width: 80%;
     padding: 8px;
     align-items: center;
     justify-content: center;
