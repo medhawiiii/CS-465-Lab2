@@ -1,8 +1,8 @@
 # Lab 2: Oh, All The Memories (also known as: Oh, the places you've been!)
-Developer: Medhawi Bista
-GitHub: @medhawiiii
-Repository: https://github.com/medhawiiii/CS-465-Lab2 
-Collaborator(s): Charles Palmer, Instructor
+- Developer: Medhawi Bista
+- GitHub: @medhawiiii
+- Repository: https://github.com/medhawiiii/CS-465-Lab2 
+- Collaborator(s): Charles Palmer, Instructor
 
 ## Purpose
 The purpose of this lab was to create a simple interactive and reactive map using React, JavaScript, the Leaflet API, OpenStreetMap, CSS, and Vite. The website was deployed on render.com.
@@ -10,10 +10,10 @@ The purpose of this lab was to create a simple interactive and reactive map usin
 ## Running the App
 To run and deploy this application, users can simply follow the set-up process from React and Vite. They can also just do the following:
 
-Clone repository
-Use npm install to install the dependencies
-Run locally with npm run dev
-Deploy using render.com 
+- Clone repository
+- Use npm install to install the dependencies
+- Run locally with npm run dev
+- Deploy using render.com 
 
 ## What To Expect After Running
 After the application is up and running, users are able to put markers on the locations they select, input nicknames for the location and write down their memory at the location. The markers have pop-ups that have the nickname and memory, as well as the exact address of their marker. We got the exact location by reverse geocoding. As the user puts down markers it gets added to a list of the locations and their memories. 
@@ -40,75 +40,75 @@ To set up and complete this project I used knowledge that I gained during lectur
 ## Resources Utilized
 
 ### Vite/Project Setup & React
-(https://vite.dev/guide/#scaffolding-your-first-vite-project)
-(http://react-leaflet.js.org/docs/start-introduction/)
-https://reactjs.org/docs/getting-started.html
+- https://vite.dev/guide/#scaffolding-your-first-vite-project
+- http://react-leaflet.js.org/docs/start-introduction/
+- https://reactjs.org/docs/getting-started.html
  
 ### React: 
-https://react.dev/learn/your-first-component
-https://react.dev/learn/importing-and-exporting-components
-https://react.dev/reference/react-dom/client/createRoot
-https://react.dev/learn/state-a-components-memory
-https://react.dev/learn/conditional-rendering
-https://react.dev/learn/responding-to-events
-https://react.dev/learn/sharing-state-between-components
-https://react.dev/learn/passing-props-to-a-component
-https://react.dev/learn/updating-arrays-in-state
-https://react.dev/learn/updating-objects-in-state#updating-a-nested-object
-https://react.dev/learn/rendering-lists
-https://react.dev/learn/synchronizing-with-effects
-https://react.dev/reference/react/useState
-https://react.dev/reference/react/useEffect
+- https://react.dev/learn/your-first-component
+- https://react.dev/learn/importing-and-exporting-components
+- https://react.dev/reference/react-dom/client/createRoot
+- https://react.dev/learn/state-a-components-memory
+- https://react.dev/learn/conditional-rendering
+- https://react.dev/learn/responding-to-events
+- https://react.dev/learn/sharing-state-between-components
+- https://react.dev/learn/passing-props-to-a-component
+- https://react.dev/learn/updating-arrays-in-state
+- https://react.dev/learn/updating-objects-in-state#updating-a-nested-object
+- https://react.dev/learn/rendering-lists
+- https://react.dev/learn/synchronizing-with-effects
+- https://react.dev/reference/react/useState
+- https://react.dev/reference/react/useEffect
 
 ### Leaflet, React Leaflet & OpenStreetMap API:
-https://www.openstreetmap.org/ 
-https://leafletjs.com/  
-https://react-leaflet.js.org/
-https://react-leaflet.js.org/docs/example-events/
-https://leafletjs.com/reference.html
-https://leafletjs.com/examples.html
-https://leafletjs.com/reference.html#popup
-https://leafletjs.com/reference.html#marker
-https://leafletjs.com/reference.html#map-click
-https://github.com/PaulLeCam/react-leaflet/issues/453
-https://github.com/Leaflet/Leaflet/issues/4968#issuecomment-633219087 
+- https://www.openstreetmap.org/ 
+- https://leafletjs.com/  
+- https://react-leaflet.js.org/
+- https://react-leaflet.js.org/docs/example-events/
+- https://leafletjs.com/reference.html
+- https://leafletjs.com/examples.html
+- https://leafletjs.com/reference.html#popup
+- https://leafletjs.com/reference.html#marker
+- https://leafletjs.com/reference.html#map-click
+- https://github.com/PaulLeCam/react-leaflet/issues/453
+- https://github.com/Leaflet/Leaflet/issues/4968#issuecomment-633219087 
 
 
 ### Geosearch & Reverse Geocode:
-https://github.com/smeijer/leaflet-geosearch
-https://leaflet-geosearch.meijer.works/usage
-https://leaflet-geosearch.meijer.works/providers/openstreetmap
-https://nominatim.org/release-docs/latest/api/Reverse/
-https://operations.osmfoundation.org/policies/nominatim/
-https://allorigins.win/ 
+- https://github.com/smeijer/leaflet-geosearch
+- https://leaflet-geosearch.meijer.works/usage
+- https://leaflet-geosearch.meijer.works/providers/openstreetmap
+- https://nominatim.org/release-docs/latest/api/Reverse/
+- https://operations.osmfoundation.org/policies/nominatim/
+- https://allorigins.win/ 
 
 ### CSS, JavaScript & Mozilla: 
-https://www.w3schools.com/cssref/css_selectors.php
-https://www.w3schools.com/css/css3_buttons.asp
-https://www.w3schools.com/css/css_rwd_mediaqueries.asp
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
-https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
-https://developer.mozilla.org/en-US/docs/Web/API/Request/json
-https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent 
+- https://www.w3schools.com/cssref/css_selectors.php
+- https://www.w3schools.com/css/css3_buttons.asp
+- https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API 
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+- https://developer.mozilla.org/en-US/docs/Web/API/Request/json
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent 
 
 I also used/sourced code from the following tutorials to help me better understand how to use documentation for React and Leaflet to create a map like the one required for the lab, and to make sure code was being properly implemented:
 
 ### Tutorials, Guides & Examples: 
-https://www.youtube.com/watch?v=jD6813wGdBA
-https://reactjsexample.com/setting-up-a-basic-leaflets-js-map-in-react/
-https://medium.com/@timndichu/getting-started-with-leaflet-js-and-react-rendering-a-simple-map-ef9ee0498202
-https://stackoverflow.com/questions/64953981/react-leaflet-the-name-of-the-place-not-the-coordinates
-https://stackoverflow.com/questions/8715860/what-does-mean-in-css
+- https://www.youtube.com/watch?v=jD6813wGdBA
+- https://reactjsexample.com/setting-up-a-basic-leaflets-js-map-in-react/
+- https://medium.com/@timndichu/getting-started-with-leaflet-js-and-react-rendering-a-simple-map-ef9ee0498202
+- https://stackoverflow.com/questions/64953981/react-leaflet-the-name-of-the-place-not-the-coordinates
+- https://stackoverflow.com/questions/8715860/what-does-mean-in-css
 
 
 ## Final Thoughts and Acknowledgements
-Overall, while I had plenty of struggles and hurdles in my path, I learned a lot of things while working on this assignment and have begun to gain a better understanding of all the tools used for this lab.
+Overall, while I had plenty of struggles and hurdles in my path, I learned a lot of things while working on this assignment and have begun to gain a better understanding of all the tools used for this lab. In the future I want allow the users to save their lists and then load it back in. 
 
 I pledge that this project was written solely by me using only what I learned in class and what knowledge I gained from official documents, guides, and examples, and was done to the best of my ability as a beginner.
