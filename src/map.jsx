@@ -40,9 +40,9 @@ function MapClickHandler({onClick}){
     click: (e) => {
       
       // calls on addMemoryMarker() function defined in MyMap
-      onClick(e);
-      // lets user know location is being fetched
-      onclick(window.confirm('Fetching location...'));
+     if ( onClick) onClick(e);
+    // lets user know location is being fetched
+     window.confirm('Fetching location...');
     },
   });
   return null;
@@ -218,29 +218,48 @@ function MyMap(){
     /* was calling api proxy backend to fetch data from nominatim (fetches server-side, bypasses CORS)
     // but became overcomplicated, chose to use AllOrigins proxy (free) to call nominatim
     // prevents COR erros*/
-    
-    // connecting to AllOrigins proxy to call nominatim, encodeURIComponent() checks that url formatted correctly
-    const locationProvider = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)}`);
+    try
+    {
+    // creating vars to hold urls (easier and cleaner to handle)
+    const urlNominatim = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
+    // switched to official geocoding endpoint, if acceptable header, works and bypasses CORs error
+    const locationProvider = await fetch(urlNominatim,{
+      headers:{"User-Agent":"cs-465-lab2/1.0(http://localhost:5173/)"}
+    });
+    // if failure, throw to catch
+    if(!locationProvider.ok){
+      throw new Error('Error fetching location. Status ${locationProvider.status}');
+    };
 
-    // parses proxy response as JSON
     /*stores data, reads request body and returns as promise
     // resolves with result of parsing body text as JSON
     // takes json as input and parses to produce Javacript object */
     const locationResults = await locationProvider.json();
-
-    // parses return from AllOrigins
-    const locationsResultData = JSON.parse(locationResults.contents);
+    // // // parses return from AllOrigins
+    // const locationData = JSON.parse(locationResults.contents);
+    // locationName = locationData.display_name || "Location unknown";
     
-    // if there is a match/is valid, return the address, else say that location is unknown
-    if (locationsResultData && locationsResultData.display_name)
-    {
-      // returning location name
-      return locationsResultData.display_name;
+    // // if there is a match/is valid, return the address, else say that location is unknown
+    // if (locationData && locationData.display_name)
+    // {
+    //   // returning location name
+    //   return locationData.display_name;
+    // }
+    // else 
+    // {
+    //   // stating that location name is unknown
+    //   return "Location unknown.";
+    // }
+    return locationResults.display_name || "Location unknown.";
     }
-    else 
-    {
-      // stating that location name is unknown
-      return "Location unknown.";
+    // catch block if there are errors 
+    catch(error){
+    // if error send error message to console with error
+    console.error(
+      "Error with getLocationName(): ", error
+    );
+      // if any error, state Location unknown
+      return "Location unknown";
     }
   }
 
