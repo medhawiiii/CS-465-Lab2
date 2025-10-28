@@ -13,7 +13,7 @@ To run and deploy this application, users can simply follow the set-up process f
 - Clone repository
 - Use npm install to install the dependencies
 - Run locally with npm run dev
-- Deploy using render.com 
+- Deploy using render.com (not neccessary, can simply be run locally by doing the above three steps)
 
 ## What To Expect After Running
 After the application is up and running, users are able to put markers on the locations they select, input nicknames for the location and write down their memory at the location. The markers have pop-ups that have the nickname and memory, as well as the exact address of their marker. We got the exact location by reverse geocoding. As the user puts down markers it gets added to a list of the locations and their memories. 
