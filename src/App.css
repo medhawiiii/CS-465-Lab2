@@ -1,20 +1,20 @@
 /* This file defines the css elements of the map page */
 
-/* sets style for page body */
-body, html{
+/* sets style for page body/ sets style for root of entire project */
+body, html, #root{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #03537f;
   background-color: #dce7ef;
-}
-
-/* sets style for root of entire project */
-#root {
   height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0;
+
+}
+
+/* ensures full page is same color*/
+:root{
+  background-color: #dce7ef;
 }
 
 /* sets page header size */
@@ -75,7 +75,7 @@ body, html{
   /* stack header vertically on smaller screens and shrink font size */
   .myMapWrapper {
     width: 90%;
-    height: 75vh;
+    height: 80vh;
   }
 }
 
