@@ -214,16 +214,25 @@ function MyMap(){
   async function getLocationName(lat, lng) {
 
     // setting up the reverse geo search
-    // calling proxy to fetch data from nominatim (fetches server-side, bypasses CORS)
-    const locationProvider = await fetch(`api/nominatim-proxy?lat=${lat}&lon=${lng}`);
+    /* was calling api proxy backend to fetch data from nominatim (fetches server-side, bypasses CORS)
+    // but became overcomplicated, chose to use AllOrigins proxy (free) to call nominatim
+    // prevents COR erros*/
+    
+    // connecting to AllOrigins proxy to call nominatim, encodeURIComponent() checks that url formatted correctly
+    const locationProvider = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)}`);
 
-    // waiting for query to match provided coordinates to location name
+    // parses proxy response as JSON
+    /*stores data, reads request body and returns as promise
+    // resolves with result of parsing body text as JSON
+    // takes json as input and parses to produce Javacript object */
     const locationResults = await locationProvider.json();
 
-    // if there is a match return the address, else say that location is unknown
-    if (locationResults && locationResults.display_name)
+    // parses return from AllOrigins
+    const locationsResultData = JSON.parse(locationResults.contents);
+    
+    // if there is a match/is valid, return the address, else say that location is unknown
+    if (locationsResultData && locationsResultData.display_name)
     {
-      
       // returning location name
       return locationResults.display_name;
     }

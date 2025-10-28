@@ -30,7 +30,7 @@ Responsive Styling: While it was part of base requirements, I made sure that the
 ## Struggles and Challenges
 My biggest struggle was being unfamiliar with most of the tools we were to use for this lab. I spent a lot of time looking through the official documents, as well as other resources like stackoverflow, GitHub, and W3Schools, to figure out how to do the things I wanted/ needed the map to be doing. I also looked for examples that were available where people did similar things to what I was trying to do with the map, and the components on the map. Then I cross-referenced with the official docs to find the different parts, and to better understand them, and went from there. Approaching it this way helped me to really understand what I was doing for each piece of the lab. I have a much better understanding of how to properly implements components, event handlers, and how to work with state management within React, while dealing with dynamically rendering a Leaflet map. 
 
-Other challenges I faced was getting the map and events to render correctly in React. At first, the maps wouldn’t appear or wouldn’t respond to user actions the way it was supposed. I made sure to go back and check the documents, then simplified imports, checked component structure, and double-checked that the map container was properly wrapped in its element. I also had trouble with getting certain elements, like the marker icons to show up and for the search bar to function and be properly visual. The icon issue was one that occured for many people, and had been written about in the docs, so I simply followed the solution that had been proven to work. I realized the search bar was mainly a styling issue and remedied that by updating the CSS for the search bar, and double checked that it was communicating properly with nominatim. Another issue was the reverse geocode to work properly with Nominatim. This is due to restrictions on how it could be used. I figured out solutions by following the official documents after looking into the error and re-reading the use restrictions.
+Other challenges I faced was getting the map and events to render correctly in React. At first, the maps wouldn’t appear or wouldn’t respond to user actions the way it was supposed. I made sure to go back and check the documents, then simplified imports, checked component structure, and double-checked that the map container was properly wrapped in its element. I also had trouble with getting certain elements, like the marker icons to show up and for the search bar to function and be properly visual. The icon issue was one that occured for many people, and had been written about in the docs, so I simply followed the solution that had been proven to work. I realized the search bar was mainly a styling issue and remedied that by updating the CSS for the search bar, and double checked that it was communicating properly with nominatim. Another issue was the reverse geocode to work properly with Nominatim. This is due to restrictions on how it could be used. I figured out solutions by following the official documents after looking into the error and re-reading the use restrictions. 
 
 Beyond technical challenges, I have been dealing with personal circumstances, challenges, and issues (mainly family and health) that heavily affected and hindered my ability to work on the lab. Despite what is happening, I simply just kept working consistently, whenever I was able to, until I completed the lab. During this I made sure that I was reading the documents to ensure I was doing things correctly and to make sure I understood what was happening (and to double check an example I’d found or seen), and testing each new piece and feature I added before moving. 
 
@@ -80,7 +80,7 @@ https://leaflet-geosearch.meijer.works/usage
 https://leaflet-geosearch.meijer.works/providers/openstreetmap
 https://nominatim.org/release-docs/latest/api/Reverse/
 https://operations.osmfoundation.org/policies/nominatim/
-
+https://allorigins.win/ 
 
 ### CSS, JavaScript & Mozilla: 
 https://www.w3schools.com/cssref/css_selectors.php
@@ -94,7 +94,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
 https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
-https://developer.mozilla.org/en-US/docs/Web/API/Request/json 
+https://developer.mozilla.org/en-US/docs/Web/API/Request/json
+https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch
 
 I also used/sourced code from the following tutorials to help me better understand how to use documentation for React and Leaflet to create a map like the one required for the lab, and to make sure code was being properly implemented:
 
