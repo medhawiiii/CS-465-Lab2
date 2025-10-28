@@ -42,7 +42,7 @@ function MapClickHandler({onClick}){
       // calls on addMemoryMarker() function defined in MyMap
      if ( onClick) onClick(e);
     // lets user know location is being fetched
-     window.confirm('Fetching location...');
+     window.confirm('Fetching location, please allow request to proccess...');
     },
   });
   return null;
